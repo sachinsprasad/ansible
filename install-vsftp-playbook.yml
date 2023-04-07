@@ -1,0 +1,16 @@
+- name: Install and Start CSFTp
+  hosts: all
+  gather_facts: false
+  tasks:
+
+
+    - name: Install vsftp
+      ansible.builtin.package:
+        name: vsftpd
+        state: present
+
+    - name: Enable service
+      ansible.builtin.service:
+        name: vsftpd
+        enabled: yes
+        state: started
